@@ -1,3 +1,9 @@
+## AI ACTUAL
+
+I wanted to make an AI budgeting app. Currently there is a chat window where you can ask questions about your transactions and balance. Next I will make the AI auto assign categories.
+
+
+
 <p align="center">
   <img src="/demo.png" alt="Actualbudget" />
 </p>
