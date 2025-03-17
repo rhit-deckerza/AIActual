@@ -29,6 +29,7 @@ import { q } from 'loot-core/shared/query';
 
 import { AuthProvider } from './auth/AuthProvider';
 import { App } from './components/App';
+import { AIChatButton } from './components/ai/AIChatButton';
 import { ServerProvider } from './components/ServerContext';
 
 // See https://github.com/WICG/focus-visible. Only makes the blue
@@ -90,6 +91,7 @@ root.render(
     <ServerProvider>
       <AuthProvider>
         <App />
+        <AIChatButton />
       </AuthProvider>
     </ServerProvider>
   </Provider>,

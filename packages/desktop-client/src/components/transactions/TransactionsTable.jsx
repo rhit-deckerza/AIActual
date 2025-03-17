@@ -452,6 +452,71 @@ function HeaderCell({
     marginRight,
   };
 
+  // Special handling for the category header to add an AI button
+  if (id === 'category') {
+    return (
+      <CustomCell
+        width={width}
+        name={id}
+        alignItems={alignItems}
+        value={value}
+        style={{
+          borderTopWidth: 0,
+          borderBottomWidth: 0,
+        }}
+        unexposedContent={({ value: cellValue }) => (
+          <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+            {onClick ? (
+              <Button variant="bare" onPress={onClick} style={style}>
+                <UnexposedCellContent value={cellValue} />
+                {icon === 'asc' && (
+                  <SvgArrowDown width={10} height={10} style={{ marginLeft: 5 }} />
+                )}
+                {icon === 'desc' && (
+                  <SvgArrowUp width={10} height={10} style={{ marginLeft: 5 }} />
+                )}
+              </Button>
+            ) : (
+              <Text style={style}>{cellValue}</Text>
+            )}
+            <Button 
+              variant="bare" 
+              style={{ 
+                marginLeft: 4,
+                padding: 2,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 4,
+                color: theme.pageTextSubdued,
+                ':hover': {
+                  backgroundColor: theme.tableRowBackgroundHover,
+                  color: theme.pageText,
+                }
+              }}
+              aria-label="AI assistant for categories"
+            >
+              <svg 
+                width="12" 
+                height="12" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ color: 'currentColor' }}
+              >
+                <path 
+                  d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 5C13.66 5 15 6.34 15 8C15 9.66 13.66 11 12 11C10.34 11 9 9.66 9 8C9 6.34 10.34 5 12 5ZM12 19.2C9.5 19.2 7.29 17.92 6 15.98C6.03 13.99 10 12.9 12 12.9C13.99 12.9 17.97 13.99 18 15.98C16.71 17.92 14.5 19.2 12 19.2Z" 
+                  fill="currentColor"
+                />
+              </svg>
+            </Button>
+          </View>
+        )}
+      />
+    );
+  }
+
+  // For all other headers, return the standard header cell
   return (
     <CustomCell
       width={width}
