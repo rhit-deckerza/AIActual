@@ -8,7 +8,7 @@ export-2020-01-10.csv
 
 # Secrets
 .secret-tokens
-
+.env
 # MacOS
 .DS_Store
 
